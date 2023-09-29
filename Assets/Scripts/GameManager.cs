@@ -13,9 +13,14 @@ public class GameManager : MonoBehaviour
     public GameObject playerMoneyDisplay;
     public GameObject playerScoreDisplay;
 
+    public GameObject linkTowerPrefab;
+
+    public GameObject selectedTower;
+
     // Start is called before the first frame update
     void Start()
     {
+        selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         playerLifeDisplay.GetComponent<UnityEngine.UI.Text>().text = playerLife.ToString();
         // playerMoneyDisplay.GetComponent<UnityEngine.UI.Text>().text = playerMoney.ToString();
         // playerScoreDisplay.GetComponent<UnityEngine.UI.Text>().text = playerScore.ToString();
@@ -40,5 +45,10 @@ public class GameManager : MonoBehaviour
     public void playerLoseLife(int damage)
     {
         setPlayerLife(playerLife - damage);
+    }
+
+    public void selectTower()
+    {
+        Debug.Log("Select tower");
     }
 }
