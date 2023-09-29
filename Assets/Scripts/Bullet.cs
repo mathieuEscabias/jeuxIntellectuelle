@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
     void HitTarget()
     {
         Enemy enemy = target.GetComponent<Enemy>();
-        // enemy.TakeDamage(damage);
+        enemy.TakeDamage(damage);
         Destroy(gameObject);
     }
 }

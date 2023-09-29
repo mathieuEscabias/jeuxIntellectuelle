@@ -10,13 +10,14 @@ public class Enemy : MonoBehaviour
         this.gameManager = gameManager;
     }
 
+    private static int life = 100;
     public GameManager gameManager;
 
     public float speed = 1f;
     private Transform target;
     private int currentWaypoint = 0;
     public float turnSpeed = 100;
-    private int life = 100;
+    [SerializeField]
     private int currentHealth;
 
 
@@ -27,11 +28,13 @@ public class Enemy : MonoBehaviour
         currentHealth = life;
     }
 
+
     // Update is called once per frame
     void Update()
     {
         Vector2 direction = target.position - transform.position;
-        if (direction.magnitude < 0.05) {
+        if (direction.magnitude < 0.05)
+        {
             if (currentWaypoint == Waypoint.points.Length - 1)
             {
                 gameManager.playerLoseLife(10);
@@ -65,7 +68,7 @@ public class Enemy : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                Die(); 
+                Die();
             }
         }
 
