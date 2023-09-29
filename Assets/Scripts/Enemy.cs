@@ -35,7 +35,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TakeDamage(1);
         Vector2 direction = target.position - transform.position;
         if (direction.magnitude < 0.05)
         {

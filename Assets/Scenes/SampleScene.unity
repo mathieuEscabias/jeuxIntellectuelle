@@ -852,8 +852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7d43cb5576edc4ba5f0fcd49c2d3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoney: 1000
-  playerScore: 0
   playerLifeDisplay: {fileID: 521590792}
   playerMoneyDisplay: {fileID: 74040813}
   playerScoreDisplay: {fileID: 1821159679}
@@ -5137,63 +5135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &833881524
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2857297609651173390, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_Name
-      value: tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264922883819271960, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bf52c79c28a9a37439ed5ab4e910cbda, type: 3}
 --- !u!1 &871115543
 GameObject:
   m_ObjectHideFlags: 0
@@ -11345,6 +11286,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &2065998896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065998897}
+  m_Layer: 0
+  m_Name: Towers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065998897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065998896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06780611, y: -0.41647452, z: 535.7146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2067722792
 GameObject:
   m_ObjectHideFlags: 0
@@ -11976,4 +11948,4 @@ SceneRoots:
   - {fileID: 100027243}
   - {fileID: 1749636211}
   - {fileID: 2126581946}
-  - {fileID: 833881524}
+  - {fileID: 2065998897}

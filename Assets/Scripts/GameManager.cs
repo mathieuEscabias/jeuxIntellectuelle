@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerScoreDisplay;
 
     public GameObject linkTowerPrefab;
+    public GameObject towersParent;
 
     public GameObject selectedTower;
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         playerLifeDisplay.GetComponent<UnityEngine.UI.Text>().text = playerLife.ToString();
         playerScoreDisplay.GetComponent<UnityEngine.UI.Text>().text = playerScore.ToString();
+        towersParent = GameObject.Find("Towers");
     }
 
     // Update is called once per frame
@@ -51,6 +53,6 @@ public class GameManager : MonoBehaviour
 
     public void buildTower()
     {
-        selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity, towersParent.transform);
     }
 }
