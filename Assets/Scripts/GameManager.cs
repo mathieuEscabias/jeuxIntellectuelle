@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         if( playerLife <= 0)
         {
             Debug.Log("Game Over");
-            // close game 
+            // Quit game 
             Application.Quit();
         }
     }

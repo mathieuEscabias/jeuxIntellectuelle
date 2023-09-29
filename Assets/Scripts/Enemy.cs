@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    public Enemy(GameManager gameManager)
+    {
+        this.gameManager = gameManager;
+    }
+
+    public GameManager gameManager;
+
     public float speed = 1f;
     private Transform target;
     private int currentWaypoint = 0;
@@ -23,6 +31,7 @@ public class Enemy : MonoBehaviour
         if (direction.magnitude < 0.05) {
             if (currentWaypoint == Waypoint.points.Length - 1)
             {
+                gameManager.playerLoseLife(10);
                 Destroy(gameObject);
             }
             else
@@ -35,13 +44,10 @@ public class Enemy : MonoBehaviour
         }
 
         Vector2 move = direction.normalized * speed * Time.deltaTime;
-        //Vector2 rotation = Vector3.RotateTowards(transform.rotation, target.position, 1, 1);
         Vector3 current = transform.up;
         Vector3 to = target.position - transform.position;
         transform.up = Vector3.RotateTowards(current, to, turnSpeed * Time.deltaTime, 300);
         transform.up = new Vector3(transform.up.x, transform.up.y, 0);
-        //transform.Transla+te(move);
         transform.position += transform.up * speed * Time.deltaTime;
-        //transform.position = new Vector3(transform.position.x, transform.position.y, -2);
     }
 }

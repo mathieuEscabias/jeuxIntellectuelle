@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class SpawnWave : MonoBehaviour
 {
+
+    public GameManager gameManager;
     public Transform enemyPrefab;
     public int enemyCount = 5;
     public float enemysDelay = 1f;
     public float clock = 1f;
     public Transform spawnPoint;
     public int spawnCount = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,7 +37,9 @@ public class SpawnWave : MonoBehaviour
         spawnCount++;
 
         if (spawnCount < enemyCount) {
-            Instantiate(enemyPrefab, spawnPoint);
+            Transform enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            enemyScript.gameManager = gameManager;
         }
     }
 }
