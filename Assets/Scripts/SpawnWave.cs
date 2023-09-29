@@ -6,7 +6,6 @@ using UnityEngine;
 public class SpawnWave : MonoBehaviour
 {
 
-    public GameManager gameManager;
     public Transform enemyPrefab;
     public int enemyCount = 5;
     public float enemysDelay = 1f;
@@ -17,14 +16,13 @@ public class SpawnWave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         clock -= Time.deltaTime;
-        
+
         if (clock < 0f)
         {
             clock = enemysDelay;
@@ -36,10 +34,10 @@ public class SpawnWave : MonoBehaviour
     {
         spawnCount++;
 
-        if (spawnCount < enemyCount) {
+        if (spawnCount < enemyCount)
+        {
             Transform enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
             Enemy enemyScript = enemy.GetComponent<Enemy>();
-            enemyScript.gameManager = gameManager;
         }
     }
 }

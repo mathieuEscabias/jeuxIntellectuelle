@@ -5,13 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public Enemy(GameManager gameManager)
-    {
-        this.gameManager = gameManager;
-    }
 
     private static int maxLife = 100;
-    public GameManager gameManager;
 
     public float speed;
     private Transform target;
@@ -40,7 +35,7 @@ public class Enemy : MonoBehaviour
         {
             if (currentWaypoint == Waypoint.points.Length - 1)
             {
-                gameManager.playerLoseLife(10);
+                GameManager.Instance.playerLoseLife(10);
                 Destroy(gameObject);
             }
             else
@@ -74,7 +69,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
-        gameManager.playerIncreaseScore(10);
+        GameManager.Instance.playerIncreaseScore(10);
 
     }
 

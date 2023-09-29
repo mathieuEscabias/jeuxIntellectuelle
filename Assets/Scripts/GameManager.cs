@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    private static GameManager _instance;
+    public static GameManager Instance { get { return _instance; } }
     private int playerLife = 10;
     private int playerMoney = 1000;
     private int playerScore = 0;
@@ -21,6 +24,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
         selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         playerLifeDisplay.GetComponent<UnityEngine.UI.Text>().text = playerLife.ToString();
         playerScoreDisplay.GetComponent<UnityEngine.UI.Text>().text = playerScore.ToString();
