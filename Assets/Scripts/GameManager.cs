@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
     {
         selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         playerLifeDisplay.GetComponent<UnityEngine.UI.Text>().text = playerLife.ToString();
-        // playerMoneyDisplay.GetComponent<UnityEngine.UI.Text>().text = playerMoney.ToString();
-        // playerScoreDisplay.GetComponent<UnityEngine.UI.Text>().text = playerScore.ToString();
     }
 
     // Update is called once per frame
@@ -38,7 +36,6 @@ public class GameManager : MonoBehaviour
         if( playerLife <= 0)
         {
             Debug.Log("Game Over");
-            // Quit game 
             Application.Quit();
         }
     }
@@ -52,8 +49,8 @@ public class GameManager : MonoBehaviour
         playerScoreDisplay.GetComponent<UnityEngine.UI.Text>().text = playerScore.ToString();
     }
 
-    public void selectTower()
+    public void buildTower()
     {
-        Debug.Log("Select tower");
+      selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }
