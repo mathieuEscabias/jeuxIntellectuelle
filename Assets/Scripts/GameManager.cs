@@ -27,15 +27,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void setPlayerLife(int life)
     {
         playerLife = life;
         playerLifeDisplay.GetComponent<UnityEngine.UI.Text>().text = playerLife.ToString();
-        if( playerLife <= 0)
+        if (playerLife <= 0)
         {
-            Debug.Log("Game Over");
             Application.Quit();
         }
     }
@@ -46,6 +45,6 @@ public class GameManager : MonoBehaviour
 
     public void buildTower()
     {
-      selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }
