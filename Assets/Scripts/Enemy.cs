@@ -16,18 +16,21 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int currentWaypoint = 0;
     public float turnSpeed = 100;
+    private int life = 100;
+    private int currentHealth;
+
 
     // Start is called before the first frame update
     void Start()
     {
         target = Waypoint.points[0];
+        currentHealth = life;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 direction = target.position - transform.position;
-
         if (direction.magnitude < 0.05) {
             if (currentWaypoint == Waypoint.points.Length - 1)
             {
@@ -50,4 +53,28 @@ public class Enemy : MonoBehaviour
         transform.up = new Vector3(transform.up.x, transform.up.y, 0);
         transform.position += transform.up * speed * Time.deltaTime;
     }
+
+    public void TakeDamage(int damageAmount)
+    {
+
+        if (currentHealth > 0)
+        {
+
+            currentHealth -= damageAmount;
+
+
+            if (currentHealth <= 0)
+            {
+                Die(); 
+            }
+        }
+
+    }
+    private void Die()
+    {
+        gameObject.SetActive(false);
+        gameManager.playerScore += 10;
+
+    }
+
 }
