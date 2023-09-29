@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     {
         setPlayerLife(playerLife - damage);
     }
+    public void playerIncreaseScore(int bonus)
+    {
+        playerScore += bonus;
+        playerScoreDisplay.GetComponent<UnityEngine.UI.Text>().text = playerScore.ToString();
+    }
 
     public void buildTower()
     {
