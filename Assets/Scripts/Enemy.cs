@@ -10,13 +10,13 @@ public class Enemy : MonoBehaviour
         this.gameManager = gameManager;
     }
 
-    private static int life = 100;
+    private static int maxLife = 100;
     public GameManager gameManager;
 
-    public float speed = 1f;
+    public float speed;
     private Transform target;
-    private int currentWaypoint = 0;
-    public float turnSpeed = 100;
+    private int currentWaypoint;
+    public float turnSpeed;
     [SerializeField]
     private int currentHealth;
 
@@ -24,14 +24,18 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.currentHealth = maxLife;
         target = Waypoint.points[0];
-        currentHealth = life;
+        this.currentWaypoint = 0;
+        this.turnSpeed = 100f;
+        this.speed = 1.0f;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        TakeDamage(1);
         Vector2 direction = target.position - transform.position;
         if (direction.magnitude < 0.05)
         {
@@ -49,7 +53,6 @@ public class Enemy : MonoBehaviour
 
         }
 
-        Vector2 move = direction.normalized * speed * Time.deltaTime;
         Vector3 current = transform.up;
         Vector3 to = target.position - transform.position;
         transform.up = Vector3.RotateTowards(current, to, turnSpeed * Time.deltaTime, 300);
@@ -59,24 +62,20 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-
         if (currentHealth > 0)
         {
-
             currentHealth -= damageAmount;
-
-
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
         }
 
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
     private void Die()
     {
         gameObject.SetActive(false);
-        gameManager.playerScore += 10;
+        gameManager.playerIncreaseScore(10);
 
     }
 

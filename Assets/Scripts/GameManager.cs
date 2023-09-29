@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private int playerLife = 10;
-    public int playerMoney = 1000;
-    public int playerScore = 0;
+    private int playerMoney = 1000;
+    private int playerScore = 0;
 
     // UI 
     public GameObject playerLifeDisplay;
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         selectedTower = Instantiate(linkTowerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         playerLifeDisplay.GetComponent<UnityEngine.UI.Text>().text = playerLife.ToString();
+        playerScoreDisplay.GetComponent<UnityEngine.UI.Text>().text = playerScore.ToString();
     }
 
     // Update is called once per frame
